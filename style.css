@@ -1,18 +1,268 @@
 body {
-  font-family: Arial, sans-serif;
+	font-family: 'Open Sans', sans-serif;
+	color: #201b2d;
+	font-size: 15px;
+	padding: 0;
+	margin: 0;
 }
-.error {
-  color: red;
+
+div, p, input, button, form, span, a, ul, li {
+	box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	margin: 0;
+	font-family: 'Ubuntu', sans-serif;
+	font-weight: 900;
+	color: white;
+}
+
+p {
+	line-height: 1.65em;
+}
+
+.header {
+	background: rgb(9,98,150);
+	background: linear-gradient(90deg, rgba(9,98,150,1) 0%, rgba(28,171,245,1) 50%, rgba(2,192,232,1) 100%);
+	padding-top: 50px;
+	padding-bottom: 50px;
+}
+
+.container {
+	width: auto;
+	margin: 0 auto;
+}
+
+.inner {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	color: white;
+}
+
+.offer {
+	width: 700px;
+}
+
+.title {
+	font-size: 25px;
+	font-weight: 70px;
+	line-height: 40px;
+	color: white;
+}
+
+.title-span {
+	font-size: 35px;
+	font-weight: bold;
+	line-height: 40px;
+	color: white;
+}
+
+.offer-text {
+	font-size: 10px;
+	color: white;
 }
 
 .button {
-  padding: 10px 20px;
-  background-color: rgb(63, 63, 83);
-  color: white;
-  border: none;
-  cursor: pointer;
-  transition: background-color 0.3s;
+	display: block;
+	width: 220px;
+	height: 50px;
+	background-color: rgba(255, 212, 41, 1.00);
+	font-weight: bold;
+	color: black;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-decoration: none;
 }
-.button:hover {
-  background-color: darkblue;
+
+.img1 {
+	width: 350px;
+	align-items: center;
 }
+
+.container1 {
+	width: 1024px;
+	margin: 0 auto;
+}
+
+.text-title {
+	font-weight: 30px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding-top: 30px;
+}
+
+.boxes {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding-top: 50px;
+	padding-bottom: 50px;
+}
+
+.box1 {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.box1-text {
+	font-size: 10px;
+}
+
+.box-text {
+	font-size: 15px;
+	font-weight: 70px;
+	line-height: 40px;
+}
+
+.mails {
+	background-color: aliceblue;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.forms {
+	display: flex;
+	padding-bottom: 20px;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+.forms-text {
+	align-items: center;
+	padding-bottom: 50px;
+	font-weight: 50px;
+	padding-top: 50px;
+}
+.grey {
+	color: grey;
+	width: 220px;
+	height: 30px;
+	padding: 15px;
+}
+
+.folder {
+	background: rgb(6,56,85);
+	background: linear-gradient(90deg, rgba(6,56,85,1) 0%, rgba(28,171,245,1) 50%, rgba(7,153,184,1) 100%);
+	padding-top: 10px;
+	padding-bottom: 10px;
+	color: white;
+	text-align: center;
+}
+
+@media screen and (max-width: 1200px) { 
+	.offer-text {
+		font-size: 13px;
+	} 
+	.box1-text {
+		font-size: 13px;
+	}
+	.col {
+		margin: center
+	}
+}
+
+@media screen and (min-width: 992px) and (max-width: 1199px) { 
+	.col-md-6 {
+		padding-left: 50px;
+		padding-right: 50px;
+	}
+	.offer-text {
+		font-size: 17px;
+	}
+	.box-text {
+		font-size: 20px;
+	}
+	.box1-text {
+		font-size: 14px;
+	}
+	.grey {
+		width: 300px;
+	}
+	.button {
+		width: 300px;
+	}
+} 
+ 
+@media screen and (min-width: 768px) and (max-width: 991px) { 
+	.header {
+		padding-left: 100px;
+	}
+
+	.title {
+		margin-top: 30px;
+		font-size: 30px;
+	}
+
+	.title-span {
+		font-size: 45px;
+	}
+
+	.offer-text {
+		margin-top: 30px;
+		margin-bottom: 30px;
+        font-size: 22px;
+    }
+
+	.button {
+		width: 400px;
+    	height: 70px;
+		font-size: 20px;
+	}
+
+	.col-md-6 {
+		padding-top: 30px;
+		align-items: center;
+		padding: 50px;
+        width: 1000px;
+	}
+
+	.img1 {
+		padding-left: 70px;
+		width: 500px;
+	}
+
+	.text-title {
+		font-size: 40px;
+	}
+
+	.img-except {
+		width: 175px;
+	}
+
+	.box-text {
+		font-size: 40px;
+	}
+
+	.box1-text {
+        font-size: 30px;
+        padding: 10px;
+    }
+
+	.row {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.grey {
+		width: 400px;
+		height: 65px;
+		font-size: 25px;
+	}
+
+	.forms {
+		padding-left: 100px;
+	}
+	.folder {
+		font-size: 20px;
+	}
+} 

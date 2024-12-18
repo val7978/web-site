@@ -1,44 +1,74 @@
-javascriptdocument.getElementById("waterOrderForm").addEventListener("submit", function(event) {
-    event.preventDefault(); 
+function validateForm() {
+    const form = document.getElementById('callbackForm');
 
-    const errorDiv = document.getElementById("errorMessages");
-    errorDiv.innerHTML = '';
-
-    const name = document.getElementById("name").value.trim();
-    const sername = document.getElementById("sername").value.trim();
-    const datatime = document.getElementById("datatime").value.trim();
-    const email = document.getElementById("email").value.trim();
-    const phone = document.getElementById("phone").value.trim();
-
-    let errors = [];
-
-    if (!name) errors.push("Пожалуйста, введите ваше имя.");
-    if (!sername) errors.push("Пожалуйста, введите вашу фамилию.");
-    if (!datatime) errors.push("Пожалуйста, выберите дату и время.");
-    if (!email) errors.push("Пожалуйста, введите ваш email.");
-    if (!phone) errors.push("Пожалуйста, введите ваш телефон.");
-
-    const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
-    if (email && !emailPattern.test(email)) {
-        errors.push("Пожалуйста, введите корректный email.");
+    // Проверка валидности формы
+    if (!form.checkValidity()) {
+        alert("Пожалуйста, заполните все обязательные поля корректно.");
+        return false; // Останавливаем отправку формы
     }
 
-    // Регулярное выражение для проверки формата телефона (пример: +7 (999) 999-99-99)
-    const phonePattern = /^\+7 \(d{3}\) d{3}-d{2}-d{2}$/;
-    if (phone && !phonePattern.test(phone)) {
-        errors.push("Пожалуйста, введите корректный номер телефона в формате +7 (999) 999-99-99.");
+    // Если все проверки пройдены, отправляем форму
+    alert("Форма успешно отправлена!");
+    return true;
+}
+
+document.getElementById('submit-button').addEventListener('click', function(event) {
+    event.preventDefault(); // Предотвращаем отправку формы
+
+    // Получаем значения полей
+    const name = document.getElementById('name').value.trim();
+    const birthdate = document.getElementById('birthday').value;
+    const email = document.getElementById('email').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const comment = document.getElementById('comment').value.trim();
+    const paymentMethod = document.getElementById('payment').value;
+
+    // Валидация
+    let valid = true;
+    let errorMessage = '';
+
+    if (name === '') {
+        valid = false;
+        errorMessage += 'Имя не может быть пустым.\n';
     }
 
-    // Если есть ошибки, выводим их
-    if (errors.length > 0) {
-        errors.forEach(error => {
-            const p = document.createElement("p");
-            p.textContent = error;
-            errorDiv.appendChild(p);
-        });
-    } else {
-        // Здесь можно добавить код для отправки формы
-        alert("Форма успешно отправлена!");
-        // Например, через fetch или XMLHttpRequest
+    if (birthday === '') {
+        valid = false;
+        errorMessage += 'Дата рождения не может быть пустой.\n';
     }
+
+    if (email === '' || !validateEmail(email)) {
+        valid = false;
+        errorMessage += 'Введите корректный E-mail.\n';
+    }
+
+    if (phone === '') {
+        valid = false;
+        errorMessage += 'Телефон не может быть пустым.\n';
+    }
+
+    if (!valid) {
+        alert(errorMessage); // Показываем сообщение об ошибках
+        return; // Выход из функции, если есть ошибки
+    }
+
+    // Если все поля валидны, можно отправить форму
+    alert(`Имя: ${name}\nДата рождения: ${birthdate}\nE-mail: ${email}\nТелефон: ${phone}\nКомментарий: ${comment}\nСпособ оплаты: ${paymentMethod}`);
+    // Здесь можно добавить код для отправки формы на сервер
 });
+
+// Функция для проверки корректности email
+function validateEmail(email) {
+    const re = /^[^s@]+@[^s@]+.[^s@]+$/;
+    return re.test(String(email).toLowerCase());
+}
+
+const elem = document.getElementById("text-title");
+elem.style.color = "rgba(255, 212, 41, 1.00)";
+
+window.onload = function() {
+    const folderText = document.querySelector('.folder p');
+    folderText.style.fontSize = '20px'; // Увеличиваем размер шрифта
+    folderText.style.color = 'black'; // Изменяем цвет текста на оранжевый
+};
+
