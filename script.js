@@ -71,4 +71,3 @@ window.onload = function() {
     folderText.style.fontSize = '20px'; // Увеличиваем размер шрифта
     folderText.style.color = 'black'; // Изменяем цвет текста на оранжевый
 };
-
